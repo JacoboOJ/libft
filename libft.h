@@ -6,7 +6,7 @@
 /*   By: jaorozco <jaorozco@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:57:44 by jaorozco          #+#    #+#             */
-/*   Updated: 2023/05/15 16:54:07 by jaorozco         ###   ########.fr       */
+/*   Updated: 2023/05/18 18:56:01 by jaorozco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strjoin(const char *s1, const char *s2);
 
 #endif
