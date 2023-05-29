@@ -6,7 +6,7 @@
 /*   By: jaorozco <jaorozco@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:57:44 by jaorozco          #+#    #+#             */
-/*   Updated: 2023/05/19 17:25:19 by jaorozco         ###   ########.fr       */
+/*   Updated: 2023/05/30 01:39:40 by jaorozco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
+char	**ft_split(const char *S, char c);
 
 #endif
