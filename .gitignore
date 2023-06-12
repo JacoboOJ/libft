@@ -1,3 +1,5 @@
 # Ignorar archivos de compilación
 *.o
 *.out
+
+*.DS_Store
