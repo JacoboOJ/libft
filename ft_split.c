@@ -6,7 +6,7 @@
 /*   By: jaorozco <jaorozco@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 19:51:40 by jaorozco          #+#    #+#             */
-/*   Updated: 2023/06/12 13:55:27 by jaorozco         ###   ########.fr       */
+/*   Updated: 2023/06/12 17:36:44 by jaorozco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,66 @@
 
 static size_t	count_words(const char *s, char c)
 {
-	size_t	i;
-	size_t	count;
+	int	i;
+	int	trigger;
 
 	i = 0;
-	count = 0;
-	while (s[i] != '\0')
+	trigger = 0;
+	while (*s)
 	{
-		while (s[i] == c)
+		if (*s != c && trigger == 0)
+		{
+			trigger = 1;
 			i++;
-		if (s[i])
-			count ++;
-		while (s[i] != c && s[i])
-			i++;
+		}
+		else if (*s == c)
+			trigger = 0;
+		s++;
 	}
-	return (count);
+	return (i);
+}
+
+static char	*word_dup(const char *s, int ini, int end)
+{
+	char	*word;
+	int		i;
+
+	i = 0;
+	word = malloc(sizeof(char) * (end - ini + 1));
+	if (!word)
+		return (NULL);
+	while (ini < end)
+		word[i++] = s[ini++];
+	word[i] = '\0';
+	return (word);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	char	**new;
 	size_t	i;
-	size_t	len;
+	size_t	j;
+	int		index;
+	char	**split;
 
-	new = malloc(sizeof(char *) * count_words(s, c) + 1);
-	if (!s || !new)
+	split = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!s || !split)
 		return (0);
 	i = 0;
-	while (*s)
+	j = 0;
+	index = -1;
+	while (i <= ft_strlen(s))
 	{
-		if (*s != c)
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
 		{
-			len = 0;
-			while (*s && *s != c && ++len)
-				s++;
-			new[i++] = ft_substr(s - len, 0, len);
+			split[j++] = word_dup(s, index, i);
+			index = -1;
 		}
-		else
-			++s;
+		i++;
 	}
-	new[i] = 0;
-	return (new);
+	split[j] = 0;
+	return (split);
 }
 /*
 int	main()
@@ -68,4 +87,5 @@ int	main()
 		printf("%i - %s\n", i, strs[i]);
 		i++;
 	}
-}*/
+}
+*/
