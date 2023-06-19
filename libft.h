@@ -6,7 +6,7 @@
 /*   By: jaorozco <jaorozco@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 13:57:44 by jaorozco          #+#    #+#             */
-/*   Updated: 2023/06/12 14:08:22 by jaorozco         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:09:50 by jaorozco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *S, char c);
 char	*ft_itoa(int n);
-
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
